@@ -11,5 +11,5 @@
 
 ## client
 
-1. yarn create react-app . template typescript
+1. yarn create react-app . --template typescript
 2. yarn add axios react-cookie react-router-dom @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
