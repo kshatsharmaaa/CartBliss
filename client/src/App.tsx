@@ -5,6 +5,7 @@ import { Auth } from "./pages/auth";
 import { Shop } from "./pages/shop";
 import { Checkout } from "./pages/checkout";
 import { PurchasedItems } from "./pages/purchased-items";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/checkout" element={<Checkout/>}/>
           <Route path="/purchased-items" element={<PurchasedItems/>}/>
         </Routes>
+        <Footer/>
       </Router>
     </div>
   );

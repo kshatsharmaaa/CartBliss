@@ -1,12 +1,21 @@
-body,html {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
 
+/* Ensures body takes full width */
+html, body {
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Updated Navbar CSS */
 .navbar {
+  
   display: flex;
+  
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
@@ -49,4 +58,27 @@ body,html {
 .navbar-links svg {
   font-size: 22px;
   color: #6a5f7d;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #f4f0f8;
+  color: #6a5f7d;
+  font-size: 14px;
+  border-top: 1px solid #d3c6e6;
+}
+
+.footer a {
+  color: #6a5f7d;
+  text-decoration: none;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  color: #4a3b5a;
 }

@@ -4,6 +4,14 @@
   ],
   "hints": {
     "typescript-config/is-valid": "off",
-    "typescript-config/strict": "off"
+    "typescript-config/strict": "off",
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "meta[name=theme-color]"
+        ]
+      }
+    ]
   }
 }
