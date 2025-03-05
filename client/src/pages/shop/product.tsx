@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// import React, { useContext } from "react";
-// import { ShopContext } from "../../context/shop-context";
-import { IProduct } from "../../models/interface";
+import React, { useContext } from "react";
+import { ShopContext } from "../../context/shop-context";
+import { IProduct } from "../../models/interfaces";
 
 interface Props {
   product: IProduct;
 }
 
 export const Product = (props: Props) => {
-  const { _id, productName, description, price, stockQuantity, imageURL } = props.product;
-//   const { addToCart, getCartItemCount } = useContext(ShopContext); 
+  const { _id, productName, description, price, stockQuantity, imageURL } =
+    props.product;
+  const { addToCart, getCartItemCount } = useContext(ShopContext);
 
-//   const cartItemCount = getCartItemCount(_id);
+  const cartItemCount = getCartItemCount(_id);
 
   return (
     <div className="product">
@@ -21,8 +22,8 @@ export const Product = (props: Props) => {
         <p>{description}</p>
         <p> ₹{price}</p>
       </div>
-      <button className="addToCartBttn" >
-        Add To Cart 
+      <button className="addToCartBttn" onClick={() => addToCart(_id)} >
+        Add To Cart {cartItemCount > 0 && <>({cartItemCount})</>} 
       </button>
 
       <div className="stockQuantity">

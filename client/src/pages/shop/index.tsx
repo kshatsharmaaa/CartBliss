@@ -1,9 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import "./style.css"
-import { useGetProducts } from "../../hooks/useGetProduct"
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import { Navigate } from "react-router-dom";
+import axios from "axios";
 import { Product } from "./product";
+import { useGetProducts } from "../../hooks/useGetProducts";
 
-export const Shop = () => {
-  const {products} = useGetProducts();
+
+export const ShopPage = () => {
+  const [cookies, _] = useCookies(["access_token"]);
+
+  const { products } = useGetProducts();
+
+  if (!cookies.access_token) {
+    return <Navigate to="/auth" />;
+  }
     return (
       <div className="shop">
       <div className="products">

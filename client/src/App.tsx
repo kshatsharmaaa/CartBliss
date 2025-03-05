@@ -1,24 +1,27 @@
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ShopPage } from "./pages/shop";
+import { AuthPage } from "./pages/auth";
+import { CheckoutPage } from "./pages/checkout";
+import { ShopContextProvider } from "./context/shop-context";
 import { Navbar } from "./components/navbar";
-import { Auth } from "./pages/auth";
-import { Shop } from "./pages/shop";
-import { Checkout } from "./pages/checkout";
-import { PurchasedItems } from "./pages/purchased-items";
+import { PurchasedItemsPage } from "./pages/purchased-items";
 import Footer from "./components/footer";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar/>
-        <Routes>
-          <Route path="/" element={<Shop/>}/>
-          <Route path="/auth" element={<Auth/>}/>
-          <Route path="/checkout" element={<Checkout/>}/>
-          <Route path="/purchased-items" element={<PurchasedItems/>}/>
-        </Routes>
-        <Footer/>
+        <ShopContextProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<ShopPage />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/purchased-items" element={<PurchasedItemsPage />} />
+          </Routes>
+          <Footer/>
+        </ShopContextProvider>
       </Router>
     </div>
   );

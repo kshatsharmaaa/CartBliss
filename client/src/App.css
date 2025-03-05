@@ -39,7 +39,7 @@ html, body {
   margin: 0;
 }
 
-.navbar-links {
+.navbar-links, span {
   display: flex;
   gap: 20px; /* Spacing between links */
 }
