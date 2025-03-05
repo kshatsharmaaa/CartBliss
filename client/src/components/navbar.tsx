@@ -31,7 +31,7 @@ export const Navbar = () => {
                 <Link to="/auth" onClick={logout}>
                 Logout
                 </Link>
-                <span> ${availableMoney.toFixed(2)} </span>
+                <span> ₹{availableMoney.toFixed(2)} </span>
             </>
             )}
             </div>

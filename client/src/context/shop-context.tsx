@@ -81,21 +81,27 @@ export const ShopContextProvider = (props) => {
     return 0;
   };
 
-  const getTotalCartAmount = () => {
-    if (products.length === 0) return 0;
+const getTotalCartAmount = () => {
+  if (!products || products.length === 0) return 0;
 
-    let totalAmount = 0;
-    for (const item in cartItems) {
-      if (cartItems[item] > 0) {
-        let itemInfo: IProduct = products.find(
-          (product) => product._id === item
-        );
+  let totalAmount = 0;
+  for (const item in cartItems) {
+    if (cartItems[item] > 0) {
+      let itemInfo: IProduct | undefined = products.find(
+        (product) => product._id === item
+      );
 
-        totalAmount += cartItems[item] * itemInfo.price;
+      if (!itemInfo) {
+        console.warn(`Product with ID ${item} not found in products list`);
+        continue;
       }
+
+      totalAmount += cartItems[item] * itemInfo.price;
     }
-    return Number(totalAmount.toFixed(2));
-  };
+  }
+  return Number(totalAmount.toFixed(2));
+};
+
 
   const addToCart = (itemId: string) => {
     if (!cartItems[itemId]) {
