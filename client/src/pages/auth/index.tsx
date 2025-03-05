@@ -71,7 +71,7 @@ const Login = () => {
             navigate("/");
           } catch (err) {
             let errorMessage: string = "";
-            switch (err.response.data.type) {
+            switch (err?.response?.data?.type) {
                 case UserErrors.NO_USER_FOUND:
                 errorMessage = "User doesnt exists";
                 break;
